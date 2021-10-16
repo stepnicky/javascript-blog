@@ -37,8 +37,8 @@ const titleClickHandler = function(event){
 }
 
 const optArticleSelector = '.post',
-optTitleSelector = '.post-title',
-optTitleListSelector = '.titles';
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles';
 
 const generateTitleLinks = function(){
 
@@ -54,7 +54,7 @@ const generateTitleLinks = function(){
   let html = '';
 
   for (let article of articles){
-
+    
     /* get the article id */
 
     const articleId = article.getAttribute('id');
@@ -73,9 +73,9 @@ const generateTitleLinks = function(){
     const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
     console.log('linkHTML: ', linkHTML);
     
-        // /* insert link into titleList */
+    // /* insert link into titleList */
 
-        // titleList.insertAdjacentHTML("beforeend", linkHTML);
+    // titleList.insertAdjacentHTML("beforeend", linkHTML);
 
     /* insert link into html variable */
     
