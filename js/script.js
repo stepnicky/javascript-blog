@@ -39,7 +39,8 @@ const titleClickHandler = function(event){
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles',
-  optArticleTagsSelector = '.post-tags .list';
+  optArticleTagsSelector = '.post-tags .list',
+  optAuthorNameSelector = '.post-author';
 
 function generateTitleLinks(customSelector = ''){
 
@@ -243,3 +244,58 @@ function addClickListenersToTags(){
 
 addClickListenersToTags();
 
+function generateAuthors(){
+
+  const articles = document.querySelectorAll(optArticleSelector);
+
+  for(let article of articles){
+
+    const authorNameWrapper = article.querySelector(optAuthorNameSelector);
+
+    const authorName = article.getAttribute('data-author');
+    console.log('authors name: ', authorName);
+
+    const authorNameHTML = '<span>By </span><a href="#author-' + authorName + '">' + authorName + '</a>';
+
+    authorNameWrapper.innerHTML = authorNameHTML;
+
+
+  }
+}
+
+generateAuthors();
+
+function authorClickHandler(event){
+  event.preventDefault();
+
+  const clickedElement = this;
+
+  const href = clickedElement.getAttribute('href');
+  console.log('author href: ', href);
+
+  const author = href.replace('#author-', '');
+  console.log('author: ', author);
+
+  const activeAuthors = document.querySelectorAll('a.active[href^="#author-"]');
+  for(let activeAuthor of activeAuthors){
+    activeAuthor.classList.remove('active');
+  }
+
+  const newActiveAuthors = document.querySelectorAll('a[href="' + href + '"]');
+  console.log('newActiveAuthors: ', newActiveAuthors);
+  for(let newActiveAuthor of newActiveAuthors){
+    newActiveAuthor.classList.add('active');
+  }
+  
+  generateTitleLinks('[data-author="' + author + '"]');
+
+}
+
+function addClickListenersToAuthors(){
+  const authorLinks = document.querySelectorAll('a[href^="#author-"]');
+  for(let authorLink of authorLinks){
+    authorLink.addEventListener('click', authorClickHandler);
+  }
+}
+
+addClickListenersToAuthors();
