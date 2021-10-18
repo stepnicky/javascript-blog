@@ -90,6 +90,19 @@ body {
     display: inline-block;
   }
 }
+.list.tags {
+  li {
+    display: inline;
+    a {
+      text-decoration: none;
+      transition: all 1s;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
+}
 
 /* Authors */
 
@@ -117,4 +130,27 @@ body {
   p {
     margin: 0 10px 0 0;
   }
+}
+
+// tag-size classes
+
+.tag-size-1 {
+  font-size: 80%;
+  color: black;
+}
+.tag-size-2 {
+  font-size: 120%;
+  color: red;
+}
+.tag-size-3 {
+  font-size: 160%;
+  color: darkgrey;
+}
+.tag-size-4 {
+  font-size: 200%;
+  color: yellowgreen;
+}
+.tag-size-5 {
+  font-size: 240%;
+  color: blueviolet;
 }

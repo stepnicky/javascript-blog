@@ -19,7 +19,7 @@
     "watch": "npm-run-all build:* build-dev -p watch:*",
     "watch:browsersync": "browser-sync start --server --files \"css/*.css\" \"*.html\" \"js/*.js\"",
     "watch:sassprefixer": "onchange sass/*.scss -- npm run build-dev",
-    "watch:eslint": "eslint-watch js/"
+    "watch:eslint": "esw --watch --changed --clear js/*.js"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +27,7 @@
   "devDependencies": {
     "autoprefixer": "^10.2.4",
     "browser-sync": "^2.27.5",
+    "eslint-watch": "^7.0.0",
     "html-validate": "^6.0.2",
     "mkdirp": "^1.0.4",
     "node-sass": "^6.0.1",
@@ -34,8 +35,5 @@
     "onchange": "^7.1.0",
     "postcss": "^8.2.6",
     "postcss-cli": "^8.3.1"
-  },
-  "dependencies": {
-    "eslint-watch": "^7.0.0"
   }
 }
